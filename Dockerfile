@@ -15,7 +15,9 @@ RUN         apk add --update --no-cache curl ca-certificates openssl libstdc++ b
 COPY ./Shanghai /etc/Shanghai
 RUN  ln -sf /etc/Shanghai /etc/localtime
 COPY ./libstdc++.so.6.0.22 /usr/local/lib64/libstdc++.so.6.0.22
-RUN  ln -sf /usr/local/lib64/libstdc++.so.6.0.22 /usr/local/lib64/libstdc++.so.6
+RUN  ln -sf /usr/local/lib64/libstdc++.so.6.0.22 /usr/local/lib/libstdc++.so.6
+COPY ./libstdc++.so.6.0.22 /usr/lib/libstdc++.so.6.0.22
+RUN  ln -sf /usr/lib/libstdc++.so.6.0.22 /usr/lib/libstdc++.so.6
 USER container
 ENV  USER container
 ENV  HOME /home/container
