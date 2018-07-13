@@ -1,15 +1,17 @@
 # Pterodactyl Core Dockerfile
-# Environment: Java (glibc support)
+# Environment: GLIBC (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM alpine:latest
+FROM        frolvlad/alpine-glibc
 
-MAINTAINER TrollCraft_CN_HK <xjdzch@126.com>
+MAINTAINER  Misakacloud, <admin@misakacloud.cn>
 
-RUN apk update \
-    && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl wget curl git tar bash \
-    && adduser -D -h /home/container container
+RUN         apk add --update --no-cache curl ca-certificates openssl libstdc++ busybox-extras \
+            && apk add libc++ jq --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+            && apk add --update --no-cache curl ca-certificates openssl git tar bash sqlite
+            && adduser -D -h /home/container container
+
+
 COPY ./Shanghai /etc/Shanghai
 RUN  ln -sf /etc/Shanghai /etc/localtime
 USER container
