@@ -8,7 +8,7 @@ MAINTAINER TrollCraft_CN_HK <xjdzch@126.com>
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl git tar bash \
+    && apk add --no-cache --update curl ca-certificates openssl wget curl git tar bash \
     && adduser -D -h /home/container container
 COPY ./Shanghai /etc/Shanghai
 RUN  ln -sf /etc/Shanghai /etc/localtime
