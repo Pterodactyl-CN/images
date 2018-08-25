@@ -3,7 +3,7 @@
 # Environment: Java (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM docker pull frolvlad/alpine-python3
+FROM frolvlad/alpine-python3
 
 MAINTAINER MisakaCloud, <admin@misakacloud.cn>
 
