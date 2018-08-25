@@ -3,7 +3,7 @@
 # Environment: Java (glibc support)
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM frolvlad/alpine-oraclejdk8:cleaned
+FROM docker pull frolvlad/alpine-python3
 
 MAINTAINER MisakaCloud, <admin@misakacloud.cn>
 
