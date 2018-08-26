@@ -9,7 +9,7 @@ MAINTAINER MisakaCloud, <admin@misakacloud.cn>
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl git tar bash \
+    && apk add --no-cache --update curl ca-certificates openssl git tar bash unzip \
     && adduser -D -h /home/container container
 
 USER container
