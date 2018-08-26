@@ -8,14 +8,14 @@ MAINTAINER  Misakacloud, <admin@misakacloud.cn>
 
 RUN         apk add --update --no-cache curl ca-certificates openssl libstdc++ busybox-extras \
             && apk add libc++ jq --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-            && apk add --update --no-cache curl ca-certificates openssl git tar bash sqlite \
+            && apk add --update --no-cache curl ca-certificates openssl git tar bash sqlite unzip \
             && adduser -D -h /home/container container
 
 
-COPY ./libstdc++.so.6.0.22 /usr/local/lib64/libstdc++.so.6.0.22
-RUN  ln -sf /usr/local/lib64/libstdc++.so.6.0.22 /usr/local/lib/libstdc++.so.6
-COPY ./libstdc++.so.6.0.22 /usr/lib/libstdc++.so.6.0.22
-RUN  ln -sf /usr/lib/libstdc++.so.6.0.22 /usr/lib/libstdc++.so.6
+COPY ./libstdc++.so.6.0.25 /usr/local/lib64/libstdc++.so.6.0.25
+RUN  ln -sf /usr/local/lib64/libstdc++.so.6.0.25 /usr/local/lib/libstdc++.so.6
+COPY ./libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6.0.25
+RUN  ln -sf /usr/lib/libstdc++.so.6.0.25 /usr/lib/libstdc++.so.6
 USER container
 ENV  USER container
 ENV  HOME /home/container
