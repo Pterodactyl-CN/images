@@ -11,6 +11,7 @@ RUN apk update \
     && apk upgrade \
     && apk add --no-cache --update curl ca-certificates openssl git tar bash unzip \
     && adduser -D -h /home/container container
+COPY ./Shanghai /etc/localtime
 
 USER container
 ENV  USER container
