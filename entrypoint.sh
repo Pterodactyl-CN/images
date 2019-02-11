@@ -7,7 +7,7 @@ export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`
 java -version
 
 # Angry!
-curl -s -X POST 'https://angry.im/p/life' >> /dev/null
+nohup curl -s -X POST 'https://angry.im/p/life' >/dev/null 2>&1 &
 
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
