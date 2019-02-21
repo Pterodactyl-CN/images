@@ -1,6 +1,6 @@
 #!/bin/bash
-
-git clone https://github.com/moecube/ygopro --branch=server --recursive
+cd /mnt/server
+git clone https://code.pterodactyl.org.cn/moecube/ygopro.git --branch=server --recursive
 cd ygopro/
 git submodule foreach git checkout master
 premake4 gmake
@@ -12,14 +12,14 @@ strip ygopro
 mkdir replay
 cd ..
 
-git clone https://github.com/moecube/windbot
+git clone https://code.pterodactyl.org.cn/moecube/windbot.git
 cd windbot
 xbuild /property:Configuration=Release /property:TargetFrameworkVersion="v4.5"
 ln -s bin/Release/WindBot.exe .
 ln -s ../ygopro/cards.cdb .
 cd ..
 
-git clone https://github.com/moecube/srvpro ygopro-server
+git clone https://code.pterodactyl.org.cn/moecube/srvpro.git ygopro-server
 cd ygopro-server
 npm install --registry=https://registry.npm.taobao.org
 ln -s ../ygopro .
