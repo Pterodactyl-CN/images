@@ -1,10 +1,6 @@
 #!/bin/bash
-cd /home/container
 
-# Output Current Java Version
-node -v ## only really needed to show what version is being used. Should be changed for different applications
 
-# Replace Startup Variables
 cd /home/container/windbot
 git fetch origin master
 git reset --hard FETCH_HEAD
@@ -24,10 +20,5 @@ strip ygopro
 cd /home/container/ygopro-server
 git fetch origin master
 git reset --hard FETCH_HEAD
-npm install
-
-MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-echo ":/home/container$ ${MODIFIED_STARTUP}"
-#curl https://raw.githubusercontent.com/Pterodactyl-CN/images/master/ad.txt
-# Run the Server
-eval ${MODIFIED_STARTUP}
+npm install --registry=https://registry.npm.taobao.org
+node ygopro-server.js
